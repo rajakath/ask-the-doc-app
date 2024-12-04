@@ -22,7 +22,7 @@ def generate_response(uploaded_file, openai_api_key, query_text):
         # Create retriever interface
         retriever = db.as_retriever()
         # Create QA chain
-        qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key="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"), chain_type='stuff', retriever=retriever)
+        qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key=openai_api_key), chain_type='stuff', retriever=retriever)
         return qa.run(query_text)
 
 # Page title
